@@ -8,9 +8,18 @@ title: 我的Blog
 		<a href="http://git.comingfront.com">首页</a>
 	</div>
 </div>
-<p>最新文章1</p>
-<ul>
+<div class="main cf">
+	<div class="layL fl">
+		<ul class="list">
 {% for post in site.posts %}
 <li>{{ post.date | date_to_string }} <a href="{{ post.url }}">{{ post.title }}</a></li>
 {% endfor %}
-</ul>
+		</ul>
+	</div>
+	<div class="layR fr">关于我：</div>
+<div class="footer">
+	<i class="footer_line"></i>
+	<div class="footer_con gray">
+		© www.comingfront.com
+	</div>
+</div>
