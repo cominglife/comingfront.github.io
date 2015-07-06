@@ -12,7 +12,13 @@ title: 我的Blog
 	<div class="layL fl">
 		<ul class="list">
 {% for post in site.posts %}
-<li>{{ post.date | date_to_string }} <a href="{{ post.url }}">{{ post.title }}</a></li>
+<li class="cf">
+	<a class="list_type" href="javascript:void(0)">JS</a>
+	<div class="list_con">
+		<span class="list_tit"><a href="{{ post.url }}">{{ post.title }}</a></span>
+		<span class="list_date">{{ post.date | date_to_string }}</span>
+	</div>
+</li>
 {% endfor %}
 		</ul>
 	</div>
