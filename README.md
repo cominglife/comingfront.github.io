@@ -1,2 +1,2 @@
-# comingfront.github.com
+# cominglife.github.com
 github pages
