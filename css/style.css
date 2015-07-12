@@ -9,7 +9,7 @@ img,fieldset{border:0;vertical-align:middle}
 .cf:after{content:"\20";clear:both;height:0;display:block;overflow:hidden}.cf{*zoom:1}
 .clear{font-size:0; line-height:0; height:0; overflow:hidden; clear:both; visibility:hidden}
 a{color:#333;text-decoration:none;outline:none;}
-a:hover{color:#155799;text-decoration:none;}
+a:hover{color:#155799;text-decoration:none;transition:all .4s;}
 .fl,.mark{float:left}
 .fr,.subMark{float:right}
 .gray{color:#aaa;}
@@ -29,7 +29,7 @@ body{min-width:600px; color:#333;}
 
 .list{padding-left:25px;}
 .list li{padding:25px 0 25px 65px; border-bottom:1px solid #ececec; position:relative;}
-.list_type{width:48px; height:48px; line-height:48px; border:1px solid #ececec; border-radius:24px; position:absolute; left:0; top:38px; text-align:center; transition:all .4s;}
+.list_type{width:48px; height:48px; line-height:48px; border:1px solid #ececec; border-radius:24px; position:absolute; left:0; top:38px; text-align:center;}
 .list_type:hover{border-color:#155799;}
 .list_con{line-height:24px;}
 .list_tit{display:block; font-size:16px;}
