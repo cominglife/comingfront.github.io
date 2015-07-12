@@ -29,7 +29,7 @@ body{min-width:600px; color:#333;}
 
 .list{padding-left:25px;}
 .list li{padding:25px 0 25px 65px; border-bottom:1px solid #ececec; position:relative;}
-.list_type{width:48px; height:48px; line-height:48px; border:1px solid #ececec; border-radius:24px; position:absolute; left:0; top:38px; text-align:center;}
+.list_type{width:48px; height:48px; line-height:48px; border:1px solid #ececec; border-radius:24px; position:absolute; left:0; top:38px; text-align:center; transition:all .4s;}
 .list_type:hover{border-color:#155799;}
 .list_con{line-height:24px;}
 .list_tit{display:block; font-size:16px;}
@@ -66,7 +66,5 @@ body{min-width:600px; color:#333;}
 .article_con pre{padding:5px 10px; border:1px solid #ddd; border-radius:5px; background:#eee;}
 
 .aboutMe{padding:10% 5%; background:#f8f8f8;}
-
-a{transition:all .4s;}
 
 
