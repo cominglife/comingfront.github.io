@@ -8,7 +8,7 @@ table{border-collapse:collapse;border-spacing:0}
 img,fieldset{border:0;vertical-align:middle}
 .cf:after{content:"\20";clear:both;height:0;display:block;overflow:hidden}.cf{*zoom:1}
 .clear{font-size:0; line-height:0; height:0; overflow:hidden; clear:both; visibility:hidden}
-a{color:#333;text-decoration:none;outline:none;transition:color .4s;transition:border-color .4s;}
+a{color:#333;text-decoration:none;outline:none;transition:color .3s;}
 a:hover{color:#155799;text-decoration:none;}
 .fl,.mark{float:left}
 .fr,.subMark{float:right}
@@ -29,13 +29,13 @@ body{min-width:600px; color:#333;}
 
 .list{padding-left:25px;}
 .list li{padding:25px 0 25px 65px; border-bottom:1px solid #ececec; position:relative;}
-.list_type{width:48px; height:48px; line-height:48px; border:1px solid #ececec; border-radius:24px; position:absolute; left:0; top:38px; text-align:center;}
+.list_type{width:48px; height:48px; line-height:48px; border:1px solid #ececec; border-radius:24px; position:absolute; left:0; top:38px; text-align:center; transition:border-color .3s;}
 .list_type:hover{border-color:#155799;}
 .list_con{line-height:24px;}
 .list_tit{display:block; font-size:16px;}
 .list_intr{display:block; margin-top:6px;}
 .list_date{display:block; font-size:12px; color:#999;}
-.list_more{display:block; width:60px; border-radius:4px; margin-top:4px; text-align:center; font-size:12px; color:#fff; background:#155799;}
+.list_more{display:block; width:60px; border-radius:4px; margin-top:4px; text-align:center; font-size:12px; color:#fff; background:#155799; transition:background .3s;}
 .list_more:hover{color:#fff; background:rgba(25,88,151,0.8);}
 
 .footer_line{display:block; height:2px; line-height:0; font-size:0; background-color:#155799; background-image:linear-gradient(120deg, #155799, #159957);}
