@@ -44,7 +44,7 @@ body{min-width:320px; color:#333;}
 .page{padding:20px 0; text-align:center; font-size:0;}
 .page i,.page a{display:inline-block; width:26px; height:26px; line-height:26px; margin:0 3px; text-align:center; border-radius:4px; font-size:14px; color:#fff;}
 .page i{background:#aaa;}
-.page a{background:#155799;}
+.page a{background:#155799; transition:background .3s;}
 .page a:hover{background:rgba(25,88,151,0.8);}
 
 .article{max-width:860px; padding:0 25px; margin:0 auto;}
