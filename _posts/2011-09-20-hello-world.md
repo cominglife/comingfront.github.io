@@ -36,4 +36,14 @@ tags: ["git"]
 
 这是一个段落里面有`一块代码`在里面，用反引用包着代码。
 
+{% highlight ruby linenos %}
+def show
+  @widget = Widget(params[:id])
+  respond_to do |format|
+    format.html # show.html.erb
+    format.json { render json: @widget }
+  end
+end
+{% endhighlight %}
+
 
