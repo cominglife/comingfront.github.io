@@ -63,8 +63,10 @@ body{min-width:320px; color:#333;}
 .article_con h4::before{content:counter(chapter)"."counter(section)"."counter(subsection); counter-increment:subsection;}
 .article_con h5::before{content:counter(chapter)"."counter(section)"."counter(subsection)"."counter(point); counter-increment:point;}
 .article_con p{margin:10px 0;}
-.article_con pre{padding:5px 10px; border:1px solid #ddd; border-radius:5px; background:#eee;}
 
 .aboutMe{padding:10% 5%; background:#f8f8f8;}
+
+pre{padding:5px 10px; border:1px solid #ddd; border-radius:5px; white-space:pre-wrap; word-wrap:break-word; background:#eee;}
+code{border:1px solid #ddd; background:#eee;}
 
 
