@@ -31,7 +31,10 @@ __三、复合数据类型，对象(object)、数组(array)：__
 a、创建包含当前日期和时间的Date对象：`var todayDate=new Date();`  
 b、创建特定日期或时间的Date对象：`var newMillennium=new Date("1 jan 2000 10:24:00");`  
 c、如月份是简写，可任意顺序创建：`var someDate=new Date("10 jan 2000");var someDate=new Date("jan 10 2000");`  
-d、Date对象可以拥有很多参数：`var someDate=new Date(aYear,aMonth,aDate,anHour,aMinute,aSecond,aMillisecond);`必须按顺序使用，如：`var someDate=new Date(2003,9,22,17);`正确，但`var someDate=new Date(2003,9,,17);`错误。  
+d、Date对象可以拥有很多参数：  
+`var someDate=new Date(aYear,aMonth,aDate,anHour,aMinute,aSecond,aMillisecond);`  
+必须按顺序使用，如：`var someDate=new Date(2003,9,22,17);`正确，  
+但`var someDate=new Date(2003,9,,17);`错误。  
 注意：javascript从0开始计算月份，因此月份8表示9月；  
 (3)Math：不能显示创建，直接使用即可，不存储数据；  
 模拟掷骰子事件：`var diceThrow=Math.round(Math.random()*5)+1;`
@@ -60,7 +63,7 @@ __四、判定__
 
 结果为true。
 
-（完）
+(完)
 
 
 

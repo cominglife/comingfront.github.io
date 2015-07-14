@@ -73,8 +73,8 @@ body{min-width:320px; color:#333;}
 .article_prev{float:left;}
 .article_next{float:right;}
 
-pre{padding:5px 10px; border:1px solid #ddd; border-radius:5px; white-space:pre-wrap; word-wrap:break-word; background:#eee;}
+pre{padding:5px 10px; margin:0; border:1px solid #ddd; border-radius:5px; white-space:pre-wrap; word-wrap:break-word; background:#eee;}
 code{font-size:14px;}
-p code{padding:3px; margin:0 2px; border:1px solid #ddd; border-radius:4px; background:#eee;}
+p code{padding:2px 3px; margin:0 2px; border:1px solid #ddd; border-radius:4px; background:#eee;}
 
 
