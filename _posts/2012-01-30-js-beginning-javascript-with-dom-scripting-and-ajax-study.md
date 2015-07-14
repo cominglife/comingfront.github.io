@@ -38,6 +38,7 @@ d、Date对象可以拥有很多参数：`var someDate=new Date(aYear,aMonth,aDa
 
 2、数组(array)：  
 (1)创建：
+
 	var preInitArray=new Array("first item","second item","third item");
 	var preInitArray=new Array(3);
 	var preInitArray=new Array();
@@ -45,16 +46,21 @@ d、Date对象可以拥有很多参数：`var someDate=new Date(aYear,aMonth,aDa
 
 __四、判定__
 
-1、String对象之间的比较要注意：  
+1、String对象之间的比较要注意：
+
 	<script type="text/javascript">
 		var string1=new String("Apple");
 		var string2=new String("Apple");
 		document.wirte(string1==string2);
 	</script>
+
 结果是false，因为他们是不同的对象，如果确实要比较两个对象的值，可以这样：
+
 	document.wirte(string1.valueOf()==string2.valueOf());
+
 结果为true。
 
+（完）
 
 
 
