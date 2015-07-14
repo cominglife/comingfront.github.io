@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Hello world
-category: "note"
+category: "code"
 tags: ["git"]
 ---
 
