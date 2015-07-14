@@ -29,13 +29,13 @@ body{min-width:320px; color:#333;}
 
 .list{padding-left:25px;}
 .list li{padding:25px 0 25px 65px; border-bottom:1px solid #ececec; position:relative;}
-.list_type{width:48px; height:48px; line-height:48px; border:1px solid #ececec; border-radius:24px; position:absolute; left:0; top:38px; text-align:center; transition:border-color .3s;}
-.list_type:hover{border-color:#4879a8;}
-.list_con{line-height:26px;}
+.list_type{width:48px; height:48px; line-height:48px; border:1px solid #ececec; border-radius:24px; position:absolute; left:0; top:38px; text-align:center; color:#aaa; transition:border-color .3s;}
+.list_type:hover{color:#4879a8; border-color:#4879a8;}
+.list_con{line-height:40px;}
 .list_tit{display:block; font-size:16px;}
 .list_tit a{color:#333;}
 .list_tit a:hover{color:#4879a8;}
-.list_intr{display:block; margin-top:6px; color:#999;}
+.list_intr{display:block; margin-top:6px; font-size:14px; color:#999;}
 .list_date{display:block; font-size:12px; color:#aaa;}
 .list_more{display:block; width:60px; border-radius:4px; margin-top:4px; text-align:center; font-size:12px; color:#fff; background:#155799; transition:background .3s;}
 .list_more:hover{color:#fff; background:rgba(25,88,151,0.8);}
