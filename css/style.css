@@ -31,7 +31,7 @@ body{min-width:320px; color:#333;}
 .list li{padding:25px 0 25px 65px; border-bottom:1px solid #ececec; position:relative;}
 .list_type{width:48px; height:48px; line-height:48px; border:1px solid #ececec; border-radius:24px; position:absolute; left:0; top:38px; text-align:center; color:#aaa; transition:border-color .3s;}
 .list_type:hover{color:#4879a8; border-color:#4879a8;}
-.list_con{line-height:40px;}
+.list_con{line-height:26px;}
 .list_tit{display:block; font-size:16px;}
 .list_tit a{color:#333;}
 .list_tit a:hover{color:#4879a8;}
@@ -53,7 +53,7 @@ body{min-width:320px; color:#333;}
 .article_tit{padding:30px 0 20px; border-bottom:1px solid #ececec;}
 .article_tit h1{font-size:20px; font-weight:400;}
 .article_tit span{display:block; font-size:12px;}
-.article_con{padding-top:20px; line-height:26px; counter-reset:chapter section subsection point;}
+.article_con{padding-top:20px; line-height:30px; counter-reset:chapter section subsection point;}
 .article_con h2,.article_con h3,.article_con h4,.article_con h5{margin:10px 0; font-weight:400;}
 .article_con h2::before,.article_con h3::before,.article_con h4::before,.article_con h5::before{margin-right:10px; color:#777;}
 .article_con h2{font-size:20px;}
