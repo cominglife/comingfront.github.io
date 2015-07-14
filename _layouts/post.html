@@ -16,10 +16,10 @@ comment: true
 		</div>
 		<div class="article_rela cf">
 	        {% if page.previous %}
-	        <a class="article_prev" href="{{ page.previous.url }}">上一篇：{{ page.previous.title | truncatewords:5 }}</a>
+	        上一篇：<a class="article_prev" href="{{ page.previous.url }}">{{ page.previous.title | truncatewords:5 }}</a>
 	        {% endif %}
 	        {% if page.next %}
-	        <a class="article_next" href="{{ page.next.url }}">下一篇：{{ page.next.title | truncatewords:5 }}</a>
+	        下一篇：<a class="article_next" href="{{ page.next.url }}">{{ page.next.title | truncatewords:5 }}</a>
 	        {% endif %}
 		</div>
 	</div>
