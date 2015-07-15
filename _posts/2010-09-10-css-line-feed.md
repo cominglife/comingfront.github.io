@@ -50,4 +50,20 @@ inherit：规定应该从父元素继承 white-space 属性的值。
 
 解决方法是直接在元素的css里加：white-space:nowrap;
 
+__2012.02.13补充，各浏览器兼容的pre换行：__
+
+普通html标签只需要用`word-wrap:break-word;word-break:break-all;overfllw:hidden;`即可实现自动换行，但在`pre`标题里面不行，以下是解决办法：
+
+各浏览器兼容的pre换行的css代码：
+
+	pre{
+	  white-space: pre-wrap;       /* css-3 */
+	  white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+	  white-space: -pre-wrap;      /* Opera 4-6 */
+	  white-space: -o-pre-wrap;    /* Opera 7 */
+	  word-wrap: break-word;       /* Internet Explorer 5.5+ */
+	}
+
+(完)。
+
 
