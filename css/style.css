@@ -65,6 +65,7 @@ body{min-width:320px; color:#333;}
 .article_con h4::before{content:counter(chapter)"."counter(section)"."counter(subsection); counter-increment:subsection;}
 .article_con h5::before{content:counter(chapter)"."counter(section)"."counter(subsection)"."counter(point); counter-increment:point;}
 .article_con p{margin:15px 0;}
+.article_hr{display:block; width:80%; height:0; line-height:0; font-size:0; border-bottom:1px solid #ececec;}
 
 .aboutMe{padding:10% 5%; background:#f8f8f8;}
 .aboutMe span{font-size:14px;}
@@ -75,6 +76,6 @@ body{min-width:320px; color:#333;}
 
 pre{padding:5px 10px; margin:0; border:1px solid #ddd; border-radius:5px; white-space:pre-wrap; word-wrap:break-word; background:#eee;}
 code{font-size:14px;}
-p code{padding:2px 3px; margin:0 2px; border:1px solid #ddd; border-radius:4px; background:#eee;}
+p code{padding:2px 3px; border:1px solid #ddd; border-radius:4px; white-space:nowrap; background:#eee;}
 
 
