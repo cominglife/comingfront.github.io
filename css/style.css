@@ -66,7 +66,7 @@ body{min-width:320px; color:#333;}
 .article_con h5::before{content:counter(chapter)"."counter(section)"."counter(subsection)"."counter(point); counter-increment:point;}
 .article_con p{margin:15px 0;}
 .article_hr{display:block; width:98%; height:2px; line-height:0; font-size:0; margin:50px auto; position:relative; background:#666;}
-.article_hr::before{content:""; display:block; width:12px; height:12px; border:2px solid #666; border-radius:4px; position:absolute; left:20px; top:-8px; background:#eee;}
+.article_hr::before{content:""; display:block; width:30px; height:6px; border:2px solid #666; border-radius:4px; position:absolute; left:5%; top:-4px; background:#eee;}
 
 .aboutMe{padding:10% 5%; background:#f8f8f8;}
 .aboutMe span{font-size:14px;}
