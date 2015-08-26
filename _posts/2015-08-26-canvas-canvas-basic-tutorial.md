@@ -242,7 +242,7 @@ demo3：
 		<canvas id="demo3" width="400" height="450"></canvas>
 		<script>
 			(function init(){
-			    var canvas =document.getElementById("myCanvas");  
+			    var canvas =document.getElementById("demo3");  
 			    var context =canvas.getContext("2d");
 
 			    context.strokeStyle = 'rgba(0,0,0,1)';
@@ -420,42 +420,41 @@ demo5：
 		<title>globalCompositeOperation 属性</title>
 	</head>
 	<body>
-	<div>
-		<strong>红色矩形是源图像，蓝色矩形是目标图像</strong>
-	</div>
-	<script>
-		(function() {
-			var gco=new Array();
-			gco.push("source-over");
-			gco.push("source-atop");
-			gco.push("source-in");
-			gco.push("source-out");
-			gco.push("destination-over");
-			gco.push("destination-atop");
-			gco.push("destination-in");
-			gco.push("destination-out");
-			gco.push("lighter");
-			gco.push("copy");
-			gco.push("xor");
-			for (n=0; n<gco.length; n++) {
-				document.write("<div id='demo5_" + n + "' style='width:120px; height:100px; float:left; margin:0 5px 5px 0'>" + gco[n] + ":<br>");
-				var c=document.createElement("canvas");
-				c.width=120;
-				c.height=100;
-				document.getElementById("demo5_" + n).appendChild(c);
-				var ctx=c.getContext("2d");    
-				ctx.fillStyle="blue";
-				ctx.fillRect(10,10,50,50);
-				ctx.globalCompositeOperation=gco[n];
-				ctx.beginPath();
-				ctx.fillStyle="red";
-				ctx.arc(50,50,30,0,2*Math.PI);
-				ctx.fill();
-				document.write("</div>");	
-			}
-		}) ();
-	</script>
-
+		<div>
+			<strong>红色矩形是源图像，蓝色矩形是目标图像</strong>
+		</div>
+		<script>
+			(function() {
+				var gco=new Array();
+				gco.push("source-over");
+				gco.push("source-atop");
+				gco.push("source-in");
+				gco.push("source-out");
+				gco.push("destination-over");
+				gco.push("destination-atop");
+				gco.push("destination-in");
+				gco.push("destination-out");
+				gco.push("lighter");
+				gco.push("copy");
+				gco.push("xor");
+				for (n=0; n<gco.length; n++) {
+					document.write("<div id='demo5_" + n + "' style='width:120px; height:100px; float:left; margin:0 5px 5px 0'>" + gco[n] + ":<br>");
+					var c=document.createElement("canvas");
+					c.width=120;
+					c.height=100;
+					document.getElementById("demo5_" + n).appendChild(c);
+					var ctx=c.getContext("2d");    
+					ctx.fillStyle="blue";
+					ctx.fillRect(10,10,50,50);
+					ctx.globalCompositeOperation=gco[n];
+					ctx.beginPath();
+					ctx.fillStyle="red";
+					ctx.arc(50,50,30,0,2*Math.PI);
+					ctx.fill();
+					document.write("</div>");	
+				}
+			}) ();
+		</script>
 	</body>
 	</html>
 
@@ -479,7 +478,7 @@ demo5：
 		gco.push("copy");
 		gco.push("xor");
 		for (n=0; n<gco.length; n++) {
-			document.write("<div id='demo5_" + n + "' style='width:120px; height:100px; float:left; margin:0 5px 5px 0'>" + gco[n] + ":<br>");
+			document.write('<div class="cf"><div id="demo5_' + n + '" style="width:150px; height:100px; float:left; margin:0 10px 10px 0">' + gco[n] + ':<br>');
 			var c=document.createElement("canvas");
 			c.width=120;
 			c.height=100;
@@ -492,10 +491,449 @@ demo5：
 			ctx.fillStyle="red";
 			ctx.arc(50,50,30,0,2*Math.PI);
 			ctx.fill();
-			document.write("</div>");	
+			document.write('</div></div>');
 		}
 	}) ();
+</script>
 
+demo6：通过数学计算做的动画
+
+	<!DOCTYPE html>
+	<html>
+	<head>
+		<title>数学之美</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	</head>
+	<body>
+		<div id="demo6"><div>
+		<script>
+			var xmin=-8, xmax=8, ymin=-8, ymax=8;
+			var sx = -250, sy=-100;
+			var c=document.createElement("canvas");
+			c.width=500;
+			c.height=250;
+			document.getElementById("demo6").appendChild(c);
+			var ctx=c.getContext("2d");
+			ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
+			var x,y,x0,y0,x1,y1,px,py,a,b,m,k;
+
+			update();
+			function update(){
+				qiangwei();
+				huaban();
+				setTimeout(update,20);
+			}
+			function qiangwei(){
+				if(a<=k*Math.PI){
+					a+=Math.PI/(30.0*m);
+					x1=px+b*Math.sin(m*a)*Math.cos(a);
+					y1=py+b*Math.sin(m*a)*Math.sin(a);
+					dda(x0,y0,x1,y1);
+					x0=x1;
+					y0=y1;
+				}else{
+					ctx.clearRect(0, 0, c.width, c.height);
+					a=b=100;
+					x0=y0=120;
+					px = py = 120;
+					m = 10;k = 2;
+					a=Math.PI/(30.0*m);
+				}
+			}
+			function dda(x0,y0,x1,y1){
+				var dx,dy,e,x,y;
+				dx=x1-x0;
+				dy=y1-y0;
+				e=(Math.abs(dx)>Math.abs(dy)) ? Math.abs(dx) : Math.abs(dy);
+				dx=dx/e;
+				dy=dy/e;
+				x=x0;
+				y=y0;
+				for(var i=1;i<=e;i++){
+					ctx.fillRect(Math.floor(x+0.5),Math.floor(y+0.5),1,1);
+					x=x+dx;
+					y=y+dy;
+				 }
+			}
+			function huaban(){
+				for(var xx=-Math.PI;xx<=Math.PI;xx+=0.01){
+					ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
+					var yy = Math.sin(xx);
+					ctx.fillRect(sx+xwtov(xx), sy + ywtov(yy),1,1);
+			  		ctx.fillRect(sx+xwtov(xx), sy + ywtov(-yy),1,1);
+			  		ctx.fillRect(sx+xwtov(yy), sy + ywtov(xx),1,1);
+			  		ctx.fillRect(sx+xwtov(yy), sy + ywtov(-xx),1,1);
+			  		
+				}
+			}
+			function xwtov(x){
+				return Math.floor(500+350*(x-xmin)/(xmax-xmin));
+			} 
+			function ywtov(y){
+				return Math.floor(400-350*(y-ymin)/(ymax-ymin));
+			}
+		</script>
+	</body>
+	</html>
+
+运行结果：
+
+<div id="demo6"><div>
+<script>
+	var xmin=-8, xmax=8, ymin=-8, ymax=8;
+	var sx = -250, sy=-100;
+	var c=document.createElement("canvas");
+	c.width=500;
+	c.height=250;
+	document.getElementById("demo6").appendChild(c);
+	var ctx=c.getContext("2d");
+	ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
+	var x,y,x0,y0,x1,y1,px,py,a,b,m,k;
+
+	update();
+	function update(){
+		qiangwei();
+		huaban();
+		setTimeout(update,20);
+	}
+	function qiangwei(){
+		if(a<=k*Math.PI){
+			a+=Math.PI/(30.0*m);
+			x1=px+b*Math.sin(m*a)*Math.cos(a);
+			y1=py+b*Math.sin(m*a)*Math.sin(a);
+			dda(x0,y0,x1,y1);
+			x0=x1;
+			y0=y1;
+		}else{
+			ctx.clearRect(0, 0, c.width, c.height);
+			a=b=100;
+			x0=y0=120;
+			px = py = 120;
+			m = 10;k = 2;
+			a=Math.PI/(30.0*m);
+		}
+	}
+	function dda(x0,y0,x1,y1){
+		var dx,dy,e,x,y;
+		dx=x1-x0;
+		dy=y1-y0;
+		e=(Math.abs(dx)>Math.abs(dy)) ? Math.abs(dx) : Math.abs(dy);
+		dx=dx/e;
+		dy=dy/e;
+		x=x0;
+		y=y0;
+		for(var i=1;i<=e;i++){
+			ctx.fillRect(Math.floor(x+0.5),Math.floor(y+0.5),1,1);
+			x=x+dx;
+			y=y+dy;
+		 }
+	}
+	function huaban(){
+		for(var xx=-Math.PI;xx<=Math.PI;xx+=0.01){
+			ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
+			var yy = Math.sin(xx);
+			ctx.fillRect(sx+xwtov(xx), sy + ywtov(yy),1,1);
+	  		ctx.fillRect(sx+xwtov(xx), sy + ywtov(-yy),1,1);
+	  		ctx.fillRect(sx+xwtov(yy), sy + ywtov(xx),1,1);
+	  		ctx.fillRect(sx+xwtov(yy), sy + ywtov(-xx),1,1);
+	  		
+		}
+	}
+	function xwtov(x){
+		return Math.floor(500+350*(x-xmin)/(xmax-xmin));
+	} 
+	function ywtov(y){
+		return Math.floor(400-350*(y-ymin)/(ymax-ymin));
+	}
+</script>
+
+demo7：星空效果
+
+	<!DOCTYPE html>
+	<html>
+	<head>
+		<title>星空效果</title>
+		<META http-equiv="X-UA-Compatible" content="IE=edge"></META>
+		<META http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	</head>
+	<body>
+		<canvas id="demo7" width="800" height="600"></canvas>
+		<script>
+			(function() {
+				var canvasWidth,canvasHeight;
+				var startSize = 3;
+				var startSpeed = 1;
+				var startNum = 100;
+				var BGCOLOR = "black";
+				var myContext;
+				var starsArr = [];
+
+				function init() {
+					var myCanvas = document.getElementById('demo7');
+					myContext = myCanvas.getContext("2d");
+					canvasWidth = myCanvas.width;
+					canvasHeight = myCanvas.height;
+
+					for(var i=0;i < startNum;i++){
+						var s = new Star();
+						starsArr.push(s);
+					}
+					setInterval(update, 33);
+				}
+				function Star() {
+					this.reset = function(){
+						this.x = 0;
+						this.y = Math.floor(Math.random() * canvasHeight);
+						this.size = Math.ceil(Math.random() * startSize);
+						this.vx = startSpeed * this.size / startSize;
+						this.vy = 0;
+						this.color = "rgba("+Math.floor(Math.random() * 255)+", "+Math.floor(Math.random() * 255)+", "+Math.floor(Math.random() * 255)+", 0.5)";
+					}
+					this.reset();
+					this.x = Math.floor(Math.random() * canvasWidth);
+				}
+				Star.prototype.reset = function() {}
+
+				function update() {
+					myContext.globalCompositeOperation = "source-over";
+					myContext.fillStyle = "rgba(0, 0, 0, 0.2)";
+					myContext.fillRect(0, 0, canvasWidth, canvasHeight);
+					myContext.globalCompositeOperation = "lighter";
+
+					for(var i = 0; i < startNum; i++){
+						var str = starsArr[i];
+						myContext.beginPath();
+						var lg = myContext.createRadialGradient(str.x, str.y, 0, str.x, str.y, str.size);
+						lg.addColorStop(0, "white");
+						lg.addColorStop(0.4, str.color);
+						lg.addColorStop(1, "black");
+						myContext.fillStyle = lg;
+						myContext.arc(str.x, str.y, str.size, Math.PI*2, false);
+						myContext.fill();
+						str.x += str.vx;
+						str.y += str.vy;
+						if(str.x<=0 || str.x>=canvasWidth || str.y<=0 || str.y>=canvasHeight){
+							str.reset();
+						}
+					}
+				}
+				init();
+			}) ();
+		</script>
+	</body>
+	</html>
+
+运行结果：
+
+<canvas id="demo7" width="800" height="600"></canvas>
+<script>
+	(function() {
+		var canvasWidth,canvasHeight;
+		var startSize = 3;
+		var startSpeed = 1;
+		var startNum = 100;
+		var BGCOLOR = "black";
+		var myContext;
+		var starsArr = [];
+
+		function init() {
+			var myCanvas = document.getElementById('demo7');
+			myContext = myCanvas.getContext("2d");
+			canvasWidth = myCanvas.width;
+			canvasHeight = myCanvas.height;
+
+			for(var i=0;i < startNum;i++){
+				var s = new Star();
+				starsArr.push(s);
+			}
+			setInterval(update, 33);
+		}
+		function Star() {
+			this.reset = function(){
+				this.x = 0;
+				this.y = Math.floor(Math.random() * canvasHeight);
+				this.size = Math.ceil(Math.random() * startSize);
+				this.vx = startSpeed * this.size / startSize;
+				this.vy = 0;
+				this.color = "rgba("+Math.floor(Math.random() * 255)+", "+Math.floor(Math.random() * 255)+", "+Math.floor(Math.random() * 255)+", 0.5)";
+			}
+			this.reset();
+			this.x = Math.floor(Math.random() * canvasWidth);
+		}
+		Star.prototype.reset = function() {}
+
+		function update() {
+			myContext.globalCompositeOperation = "source-over";
+			myContext.fillStyle = "rgba(0, 0, 0, 0.2)";
+			myContext.fillRect(0, 0, canvasWidth, canvasHeight);
+			myContext.globalCompositeOperation = "lighter";
+
+			for(var i = 0; i < startNum; i++){
+				var str = starsArr[i];
+				myContext.beginPath();
+				var lg = myContext.createRadialGradient(str.x, str.y, 0, str.x, str.y, str.size);
+				lg.addColorStop(0, "white");
+				lg.addColorStop(0.4, str.color);
+				lg.addColorStop(1, "black");
+				myContext.fillStyle = lg;
+				myContext.arc(str.x, str.y, str.size, Math.PI*2, false);
+				myContext.fill();
+				str.x += str.vx;
+				str.y += str.vy;
+				if(str.x<=0 || str.x>=canvasWidth || str.y<=0 || str.y>=canvasHeight){
+					str.reset();
+				}
+			}
+		}
+		init();
+	}) ();
+</script>
+
+demo8：雨水效果
+
+	<!DOCTYPE html>
+	<html>
+	<head>
+		<title>雨水效果</title>
+		<META http-equiv="X-UA-Compatible" content="IE=edge"></META>
+		<META http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	</head>
+	<body>
+		<canvas id="demo8" width="600" height="400"></canvas>
+		<script>
+			(function() {
+				var canvasWidth,canvasHeight;
+
+				var dripSpeed = 1;
+				var dripNum = 100;
+				var BGCOLOR = "black";
+				var myContext;
+				var gravity = 0.01;
+				var dripArr = [];
+
+				function init(){
+					var myCanvas = document.getElementById('demo8');
+					myContext = myCanvas.getContext("2d");
+					canvasWidth = myCanvas.width;
+					canvasHeight = myCanvas.height;
+
+					for(var i=0;i < dripNum;i++) {
+						var s = new Drip();
+						dripArr.push(s);
+					}
+					setInterval(update, 10);
+				}
+				function Drip(){
+					this.reset = function(){
+						this.x = Math.floor(Math.random() * canvasWidth)
+						this.y = 0;
+						this.vx = 0;
+						this.vy = dripSpeed ;
+						this.color = "rgba(0, 153, 255, 0.7)";
+					}
+					this.reset();
+					this.y = Math.floor(Math.random() * canvasHeight);
+				}
+
+				function rand( min, max ) {
+					return Math.random() * ( max - min ) + min;
+				}
+
+				function update(){
+					myContext.globalCompositeOperation = "source-over";
+					myContext.fillStyle = "rgba(0, 0, 0, 0.1)";
+					myContext.fillRect(0, 0, canvasWidth, canvasHeight);
+					myContext.globalCompositeOperation = "lighter";
+					for(var i = 0; i < dripNum; i++){
+						var drip = dripArr[i];
+						myContext.beginPath();
+						var lg  = myContext.createLinearGradient(drip.x, drip.y, drip.x,drip.y+2);
+						lg.addColorStop(0, "white");
+						lg.addColorStop(1, drip.color);
+						myContext.fillStyle = lg;
+						myContext.rect(drip.x, drip.y, 1,2); 
+						myContext.fill();
+						drip.vy += gravity;
+						drip.x += drip.vx;
+						drip.y += drip.vy;
+						if(drip.x<=0 || drip.x>=canvasWidth || drip.y<=0 || drip.y>=canvasHeight){
+							drip.reset();
+						}
+					}
+				}
+				init();
+			}) ();
+		</script>
+	</body>
+	</html>
+
+运行结果：
+
+<canvas id="demo8" width="600" height="400"></canvas>
+<script>
+	(function() {
+		var canvasWidth,canvasHeight;
+
+		var dripSpeed = 1;
+		var dripNum = 100;
+		var BGCOLOR = "black";
+		var myContext;
+		var gravity = 0.01;
+		var dripArr = [];
+
+		function init(){
+			var myCanvas = document.getElementById('demo8');
+			myContext = myCanvas.getContext("2d");
+			canvasWidth = myCanvas.width;
+			canvasHeight = myCanvas.height;
+
+			for(var i=0;i < dripNum;i++) {
+				var s = new Drip();
+				dripArr.push(s);
+			}
+			setInterval(update, 10);
+		}
+		function Drip(){
+			this.reset = function(){
+				this.x = Math.floor(Math.random() * canvasWidth)
+				this.y = 0;
+				this.vx = 0;
+				this.vy = dripSpeed ;
+				this.color = "rgba(0, 153, 255, 0.7)";
+			}
+			this.reset();
+			this.y = Math.floor(Math.random() * canvasHeight);
+		}
+
+		function rand( min, max ) {
+			return Math.random() * ( max - min ) + min;
+		}
+
+		function update(){
+			myContext.globalCompositeOperation = "source-over";
+			myContext.fillStyle = "rgba(0, 0, 0, 0.1)";
+			myContext.fillRect(0, 0, canvasWidth, canvasHeight);
+			myContext.globalCompositeOperation = "lighter";
+			for(var i = 0; i < dripNum; i++){
+				var drip = dripArr[i];
+				myContext.beginPath();
+				var lg  = myContext.createLinearGradient(drip.x, drip.y, drip.x,drip.y+2);
+				lg.addColorStop(0, "white");
+				lg.addColorStop(1, drip.color);
+				myContext.fillStyle = lg;
+				myContext.rect(drip.x, drip.y, 1,2); 
+				myContext.fill();
+				drip.vy += gravity;
+				drip.x += drip.vx;
+				drip.y += drip.vy;
+				if(drip.x<=0 || drip.x>=canvasWidth || drip.y<=0 || drip.y>=canvasHeight){
+					drip.reset();
+				}
+			}
+		}
+		init();
+	}) ();
+</script>
 
 (完)
 
