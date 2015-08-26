@@ -281,7 +281,7 @@ demo3：
 <canvas id="demo3" width="400" height="450"></canvas>
 <script>
 	(function init(){
-	    var canvas =document.getElementById("myCanvas");  
+	    var canvas =document.getElementById("demo3");  
 	    var context =canvas.getContext("2d");
 
 	    context.strokeStyle = 'rgba(0,0,0,1)';
@@ -463,38 +463,40 @@ demo5：
 <div>
 	<strong>红色矩形是源图像，蓝色矩形是目标图像</strong>
 </div>
-<script>
-	(function() {
-		var gco=new Array();
-		gco.push("source-over");
-		gco.push("source-atop");
-		gco.push("source-in");
-		gco.push("source-out");
-		gco.push("destination-over");
-		gco.push("destination-atop");
-		gco.push("destination-in");
-		gco.push("destination-out");
-		gco.push("lighter");
-		gco.push("copy");
-		gco.push("xor");
-		for (n=0; n<gco.length; n++) {
-			document.write('<div class="cf"><div id="demo5_' + n + '" style="width:150px; height:100px; float:left; margin:0 10px 10px 0">' + gco[n] + ':<br>');
-			var c=document.createElement("canvas");
-			c.width=120;
-			c.height=100;
-			document.getElementById("demo5_" + n).appendChild(c);
-			var ctx=c.getContext("2d");    
-			ctx.fillStyle="blue";
-			ctx.fillRect(10,10,50,50);
-			ctx.globalCompositeOperation=gco[n];
-			ctx.beginPath();
-			ctx.fillStyle="red";
-			ctx.arc(50,50,30,0,2*Math.PI);
-			ctx.fill();
-			document.write('</div></div>');
-		}
-	}) ();
-</script>
+<div class="cf">
+	<script>
+		(function() {
+			var gco=new Array();
+			gco.push("source-over");
+			gco.push("source-atop");
+			gco.push("source-in");
+			gco.push("source-out");
+			gco.push("destination-over");
+			gco.push("destination-atop");
+			gco.push("destination-in");
+			gco.push("destination-out");
+			gco.push("lighter");
+			gco.push("copy");
+			gco.push("xor");
+			for (n=0; n<gco.length; n++) {
+				document.write('<div id="demo5_' + n + '" style="width:150px; height:100px; float:left; margin:0 10px 10px 0">' + gco[n] + ':<br>');
+				var c=document.createElement("canvas");
+				c.width=120;
+				c.height=100;
+				document.getElementById("demo5_" + n).appendChild(c);
+				var ctx=c.getContext("2d");    
+				ctx.fillStyle="blue";
+				ctx.fillRect(10,10,50,50);
+				ctx.globalCompositeOperation=gco[n];
+				ctx.beginPath();
+				ctx.fillStyle="red";
+				ctx.arc(50,50,30,0,2*Math.PI);
+				ctx.fill();
+				document.write('</div>');
+			}
+		}) ();
+	</script>
+</div>
 
 demo6：通过数学计算做的动画
 
@@ -578,7 +580,7 @@ demo6：通过数学计算做的动画
 
 运行结果：
 
-<div id="demo6"><div>
+<div id="demo6"></div>
 <script>
 	var xmin=-8, xmax=8, ymin=-8, ymax=8;
 	var sx = -250, sy=-100;
